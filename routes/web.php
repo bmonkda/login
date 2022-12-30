@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// dd(User::first()->toArray());
+
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+// Route::get('/login', function() {
+//     return 'Página de login';
+// });
+
+Route::view('/register', 'auth.register')->name('register');
+Route::view('/login', 'auth.login')->name('login');
