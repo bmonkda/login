@@ -1,18 +1,8 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 
 // dd(User::first()->toArray());
 
@@ -22,9 +12,33 @@ Route::get('/', function () {
 });
 
 
+
+// Route::get('incidencias/{incidencia}/resolver', [IncidenciaController::class, 'resolver'])->name('admin.incidencias.resolver');
+// Route::resource('incidencias', IncidenciaController::class)->names('admin.incidencias');
+
+
 // Route::get('/login', function() {
 //     return 'Página de login';
 // });
 
-Route::view('/register', 'auth.register')->name('register');
-Route::view('/login', 'auth.login')->name('login');
+Route::view('/', 'welcome')->name('welcome');
+Route::view('register', 'register')->name('register');
+Route::view('login', 'login')->name('login');
+
+Route::view('dashboard', 'dashboard')->name('dashboard');
+
+
+
+
+// Route::post('login', [LoginController::class,'authenticate']);
+// Route::post('login', function() {
+//     $credentials = request()->only('email', 'password');
+    
+//     if (Auth::attempt($credentials)) {
+//         request()->session()->regenerate();
+
+//         return redirect('welcome');
+//         // return redirect()->intended('dashboard');
+//     }
+//     return redirect('login');
+// });
