@@ -30,7 +30,9 @@ Route::view('/dashboard', 'dashboard')->middleware('auth');
 Route::post('login', function () {
     $credentials = request()->only('email', 'password');
 
-    if (Auth::attempt($credentials)) {
+    $remember = request()->filled('remember');
+
+    if (Auth::attempt($credentials, $remember)) {
         request()->session()->regenerate();
 
         return redirect('dashboard');
