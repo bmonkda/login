@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Validation\ValidationException;
 
 // dd(User::first()->toArray());
 
@@ -27,18 +28,7 @@ Route::view('/register', 'register');
 
 Route::view('/dashboard', 'dashboard')->middleware('auth');
 
-Route::post('login', function () {
-    $credentials = request()->only('email', 'password');
-
-    $remember = request()->filled('remember');
-
-    if (Auth::attempt($credentials, $remember)) {
-        request()->session()->regenerate();
-
-        return redirect('dashboard');
-    }
-    return redirect('login');
-});
+Route::post('login', [LoginController::class, 'login']);
 
 
 // Route::post('login', [LoginController::class,'authenticate']);

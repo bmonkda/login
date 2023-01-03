@@ -11,3 +11,7 @@
         @endauth
     </ul>
 </nav>
+
+@if (session('status'))
+    {{ session('status') }}
+@endif
