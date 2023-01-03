@@ -8,14 +8,16 @@
 </head>
 <body>
     
-    <nav>
+    {{-- <nav>
         <ul>
              <li><a href="{{ route('welcome') }}"></a>Inicio</li>
              <li><a href="{{ route('login') }}"></a>Login</li>
              <li><a href="{{ route('dashboard') }}"></a>Dashboard</li>
              <li><a href="{{ "#" }}"></a>Logout</li>
          </ul>
-     </nav>
+     </nav> --}}
+
+    @include('partials.nav')
      
     <h1>Inicio</h1>
     
