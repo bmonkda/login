@@ -31,4 +31,14 @@ class LoginController extends Controller
             'email' => __('auth.failed')
         ]);
     }
+
+    public function logout(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate();
+        
+        $request->session()->regenerateToken();
+
+        return redirect('/')->with('status', 'Sesión cerrada');
+    }
 }

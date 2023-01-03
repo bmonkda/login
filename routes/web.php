@@ -29,6 +29,7 @@ Route::view('/register', 'register');
 Route::view('/dashboard', 'dashboard')->middleware('auth');
 
 Route::post('login', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'logout']);
 
 
 // Route::post('login', [LoginController::class,'authenticate']);
