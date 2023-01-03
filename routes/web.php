@@ -1,12 +1,13 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\ValidationException;
 
 // dd(User::first()->toArray());
-
 
 Route::get('/', function () {
     return view('welcome');
