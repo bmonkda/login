@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
@@ -25,9 +26,12 @@ class LoginController extends Controller
 
         if ( $user->clave === md5($request->password) ) {
             Auth::login($user);
+
+            $user->update(['clave' => Hash::make($request->password)]);
+
             $request->session()->regenerate();
-            return redirect()
-                ->intended('dashboard')
+
+            return redirect()->intended('dashboard')
                 ->with('status','Estás logueado');
         }
 
@@ -35,12 +39,14 @@ class LoginController extends Controller
         // if (Auth::attempt($credentials, $remember)) {
 
         // if (Auth::attempt($request->only('email','password'), $remember)) {
-        //     $request->session()->regenerate();
+        if (Hash::check($request->password, $user->clave)) {
+            Auth::login($user);
+            
+            $request->session()->regenerate();
     
-        //     return redirect()
-        //         ->intended('dashboard')
-        //         ->with('status','Estás logueado');
-        // }
+            return redirect()->intended('dashboard')
+                ->with('status','Estás logueado');
+        }
 
 
         // return redirect('login');
