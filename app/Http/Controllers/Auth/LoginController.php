@@ -19,11 +19,12 @@ class LoginController extends Controller
     
         $remember = $request->filled('remember');
 
-        $user = User::where('correo', $request->email)->first();
+        // $user = User::where('correo', $request->email)->first();
+        $user = User::where('uid', $request->uid)->first();
 
-        // return $user;
+        //  return $user;
 
-        if ( $user->clave === md5($request->password) ) {
+        if ( $user->clave === md5($request->password) && $user->idstatus === 1) {
             Auth::login($user);
             $request->session()->regenerate();
             return redirect()
@@ -46,7 +47,8 @@ class LoginController extends Controller
         // return redirect('login');
         throw ValidationException::withMessages([
             // 'email' => 'Estas credenciales no coinciden con nuestros registros'
-            'email' => __('auth.failed')
+            'uid' => 'Estas credenciales no coinciden con nuestros registros'
+            // 'email' => __('auth.failed')
         ]);
     }
 
@@ -59,4 +61,10 @@ class LoginController extends Controller
 
         return redirect('/')->with('status', 'Sesión cerrada');
     }
+
+    public function username()
+    {
+        return 'uid';
+    }
+
 }
