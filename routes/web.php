@@ -14,7 +14,7 @@ Route::get('/', function () {
 });
 
 
-Route::view('/', 'welcome');
+// Route::view('/', 'welcome')/* ->middleware('auth') */;
 Route::view('/login', 'auth.login')->name('login')->middleware('guest');
 Route::view('/register', 'register');
 
