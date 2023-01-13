@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
-    'title_prefix' => '',
+    'title' => '',
+    'title_prefix' => 'INCIDENCIAS | ',
     'title_postfix' => '',
 
     /*
@@ -35,25 +35,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Google Fonts
-    |--------------------------------------------------------------------------
-    |
-    | Here you can allow or not the use of external google fonts. Disabling the
-    | google fonts may be useful if your admin panel internet access is
-    | restricted somehow.
-    |
-    | For detailed instructions you can look the google fonts section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
-    */
-
-    'google_fonts' => [
-        'allowed' => true,
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Admin Panel Logo
+    | Logo
     |--------------------------------------------------------------------------
     |
     | Here you can change the logo of your admin panel.
@@ -63,59 +45,13 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>HIDRO</b>BOLÍVAR',
+    // 'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'vendor/adminlte/dist/img/HB.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Admin Logo',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Authentication Logo
-    |--------------------------------------------------------------------------
-    |
-    | Here you can setup an alternative logo to use on your login and register
-    | screens. When disabled, the admin panel logo will be used instead.
-    |
-    | For detailed instructions you can look the auth logo section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
-    */
-
-    'auth_logo' => [
-        'enabled' => false,
-        'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'Auth Logo',
-            'class' => '',
-            'width' => 50,
-            'height' => 50,
-        ],
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Preloader Animation
-    |--------------------------------------------------------------------------
-    |
-    | Here you can change the preloader animation configuration.
-    |
-    | For detailed instructions you can look the preloader section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
-    */
-
-    'preloader' => [
-        'enabled' => true,
-        'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'AdminLTE Preloader Image',
-            'effect' => 'animation__shake',
-            'width' => 60,
-            'height' => 60,
-        ],
-    ],
+    'logo_img_alt' => 'Incidencias',
 
     /*
     |--------------------------------------------------------------------------
@@ -130,11 +66,11 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
+    'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => false,
-    'usermenu_desc' => false,
-    'usermenu_profile_url' => false,
+    'usermenu_image' => true,
+    'usermenu_desc' => true,
+    'usermenu_profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -150,8 +86,8 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => null,
+    'layout_fixed_sidebar' => true,
+    'layout_fixed_navbar' => true,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
 
@@ -253,7 +189,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -302,86 +238,104 @@ return [
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
+        // [
+        //     'type' => 'sidebar-menu-search',
+        //     'text' => 'search',
+        // ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text'  => 'Dashboard',
+            'route' => 'admin.home',
+            'icon'  => 'fas fa-fw fa-tachometer-alt',
+            // 'can'  => 'admin.home',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text'  => 'Usuarios',
+            'route' => 'admin.users.index',
+            'icon'  => 'fas fa-fw fa-users',
+            // 'can'  => 'admin.users.index',
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
+            'text'  => 'Lista de roles',
+            'route' => 'admin.roles.index',
+            'icon'  => 'fas fa-fw fa-users-cog',
+            // 'can'  => 'admin.roles.index',
         ],
-        ['header' => 'labels'],
+        // [
+        //     'text'  => 'Subir Archivos',
+        //     'route' => 'admin.cargas.index',
+        //     'icon'  => 'fas fa-fw fa-upload',
+        //     'can'  => 'admin.cargas.index',
+        // ],
+        
+   #    ['header' => 'ADMINISTRADOR'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text' => 'Categorías',
+            'route' => 'admin.categories.index',
+            'icon' => 'fab fa-fw fa-buffer',
+            'active' => ['admin/categories*'],
+            // 'can'  => 'admin.categories.index',
+        ],
+        /* [
+            'text' => 'Subcategorías',
+            'route' => 'admin.subcategories.index',
+            // <i class="fa-solid fa-ballot-check"></i>
+            // 'icon' => 'fab fa-fw fa-buffer',
+            // <i class="fa-duotone fa-check-double"></i>
+            'icon' => 'fas fa-fw fa-check-double',
+            'active' => ['admin/subcategories*'],
+            'can'  => 'admin.subcategories.index',
+        ], */
+        // [
+        //     'text' => 'Estatus',
+        //     'route' => 'admin.modos.index',
+        //     'icon' => 'far fa-fw fa-bookmark',
+        //     'active' => ['admin/modos*'],
+        //     'can'  => 'admin.modos.index',
+        // ],
+        [
+            'text' => 'Estatus',
+            'route' => 'admin.estatus.index',
+            'icon' => 'far fa-fw fa-bookmark',
+            'active' => ['admin/estatus*'],
+            // 'can'  => 'admin.estatus.index',
+        ],
+        ['header' => 'OPCIONES'],
+        [
+            'text' => 'Archivos',
+            'route' => 'admin.cargas.index',
+            // 'icon' => 'fas fa-fw fa-download',
+            'icon' => 'fas fa-fw fa-file',
+            // 'can'  => 'admin.cargas.index',
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
+            'text' => 'Lista de incidencias',
+            'route' => 'admin.incidencias.index',
+            'icon' => 'fas fa-fw fa-clipboard',
+            // 'can'  => 'admin.incidencias.index',
         ],
         [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            'text' => 'Mis incidencias',
+            'route' => 'admin.mis-incidencias.index',
+            'icon' => 'fas fa-fw fa-clipboard',
+            // 'can'  => 'admin.mis-incidencias.index',
+        ],
+        [
+            'text' => 'Asignadas a Mi',
+            // 'url' => '/asignadas',
+            'route' => 'admin.mis-asignadas.index',
+            'icon' => 'fas fa-fw fa-clipboard',
+            // 'can'  => '/asignadas',
+        ],
+        [
+            'text' => 'Crear incidencias',
+            'route' => 'admin.incidencias.create',
+            'icon' => 'fas fa-fw fa-file',
+            // 'can'  => 'admin.incidencias.create',
         ],
     ],
 
@@ -537,5 +491,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];

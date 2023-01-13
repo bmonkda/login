@@ -49,4 +49,30 @@ class User extends Authenticatable
         // 'email_verified_at' => 'datetime',
         'fecstatus' => 'datetime',
     ];
+
+    public function adminlte_image(){
+        return $this->profile_photo_url;
+    }
+
+    public function adminlte_desc()
+    {
+        // modificar código cuando se haga tabla de roles
+        // return rol del usuario;
+        // return 'Administrador';
+        if ($this->hasRole('Admin')) {
+            return 'Administrador';
+        }
+        if ($this->hasRole('Usuario')) {
+            return 'Usuario';
+        }
+        if ($this->hasRole('Soporte')) {
+            return 'Soporte';
+        }
+    }
+
+    public function adminlte_profile_url()
+    {
+        return 'profile/username';
+    }
+    
 }
