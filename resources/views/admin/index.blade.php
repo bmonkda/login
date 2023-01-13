@@ -1,5 +1,4 @@
-{{-- @extends('adminlte::page') --}}
-@extends('app.layout')
+@extends('adminlte::page')
 
 @section('title', 'Dashboard')
 
@@ -12,6 +11,7 @@
         <div class="card-header">
 
             {{-- <h3>{{ Auth::user()->name }}</h3> --}}
+            <h3>{{ Auth::user() }}</h3>
             <h5>Bienvenido al sistema</h5>
 
         </div>
