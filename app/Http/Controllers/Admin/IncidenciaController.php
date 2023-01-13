@@ -25,10 +25,10 @@ class IncidenciaController extends Controller
 
     public function __construct()
     {
-        $this->middleware('can:admin.incidencias.index')->only('index');
-        $this->middleware('can:admin.incidencias.create')->only('create', 'store');
-        $this->middleware('can:admin.incidencias.edit')->only('edit', 'update');
-        $this->middleware('can:admin.incidencias.destroy')->only('destroy');
+        // $this->middleware('can:admin.incidencias.index')->only('index');
+        // $this->middleware('can:admin.incidencias.create')->only('create', 'store');
+        // $this->middleware('can:admin.incidencias.edit')->only('edit', 'update');
+        // $this->middleware('can:admin.incidencias.destroy')->only('destroy');
     }
 
     /**

@@ -74,5 +74,17 @@ class User extends Authenticatable
     {
         return 'profile/username';
     }
+
+    //Relaciones uno a muchos
+
+    public function incidencias()
+    {
+        return $this->hasMany(Incidencia::class, 'crea_id', 'id');
+    }
+    
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
     
 }

@@ -32,7 +32,8 @@ return new class extends Migration
             $table->foreignId('estatu_id')->default(1)->references('id')->on('estatus')->onDelete('cascade');
             
             // $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('user_id')->nullable();
+            $table->foreignId('user_id')->nullable()->references('idusuario')->on('users')->onDelete('cascade');
+            // $table->integer('user_id')->nullable();
             
             
             // $table->integer('asignado_a')->references('id')->on('users')->nullable();

@@ -12,10 +12,10 @@ class CategoryController extends Controller
 
     public function __construct()
     {
-        $this->middleware('can:admin.categories.index')->only('index');
-        $this->middleware('can:admin.categories.create')->only('create', 'store');
-        $this->middleware('can:admin.categories.edit')->only('edit', 'update');
-        $this->middleware('can:admin.categories.destroy')->only('destroy');
+        // $this->middleware('can:admin.categories.index')->only('index');
+        // $this->middleware('can:admin.categories.create')->only('create', 'store');
+        // $this->middleware('can:admin.categories.edit')->only('edit', 'update');
+        // $this->middleware('can:admin.categories.destroy')->only('destroy');
     }
 
     /**
