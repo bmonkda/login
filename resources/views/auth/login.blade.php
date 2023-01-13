@@ -9,10 +9,6 @@
 </head>
 <body>
 
-  @include('partials.nav')
-  {{-- <h1 class="text-3xl">Login</h1> --}}
-  
-
   <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="w-full max-w-md space-y-8">
       <div>
@@ -46,7 +42,7 @@
         </div>
 
         <div>
-          <label for="password" class="">Password</label>
+          <label for="password" class="">Contraseña</label>
           {{-- <input id="password" name="password" type="password" autocomplete="current-password" required class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password"> --}}
           <input id="password" name="password" type="password" autocomplete="current-password" required class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password">
           @error('password') {{ $message }} @enderror
